@@ -18,11 +18,8 @@ Plug 'chrisbra/vim-commentary'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/tagbar'
-" Plug 'puremourning/vimspector'
-" Plug 'codota/tabnine-vim'
-" Plug 'frazrepo/vim-rainbow'
+Plug 'szymonmaszke/vimpyter'
 Plug 'airblade/vim-gitgutter'
-" Plug 'yaegassy/coc-htmldjango'
 call plug#end()
 set laststatus=2
 let mapleader = ","
@@ -73,9 +70,10 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
 let g:coc_snippet_next = '<tab>'
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 map <leader>p :Prettier<cr>
-nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>8j>a
+nnoremap ,start :-1read $HOME/.vim/.skeleton.html<CR>8j>a
 nnoremap ,css  :-1read $HOME/.vim/.skeleton.css<CR>8j>a
+set noswapfile
+
