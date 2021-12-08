@@ -5,7 +5,7 @@ set path+=**
 set wildmenu
 set number
 set clipboard=unnamedplus
-colorscheme industry
+colorscheme peaksea
 set backspace=indent,eol,start
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -20,12 +20,14 @@ Plug 'itchyny/lightline.vim'
 Plug 'preservim/tagbar'
 Plug 'szymonmaszke/vimpyter'
 Plug 'airblade/vim-gitgutter'
+Plug 'yegappan/taglist'
 call plug#end()
 set laststatus=2
 let mapleader = ","
 nmap <leader>w :w!<cr>
 nmap <leader>d :term python -m pudb % <cr>
 map <leader>tn :tabnew<cr>
+map <leader>l  :TlistToggle<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove 
@@ -76,4 +78,4 @@ map <leader>p :Prettier<cr>
 nnoremap ,start :-1read $HOME/.vim/.skeleton.html<CR>8j>a
 nnoremap ,css  :-1read $HOME/.vim/.skeleton.css<CR>8j>a
 set noswapfile
-
+nmap <leader>ts :term tsc % <cr>
