@@ -8,7 +8,12 @@ set clipboard=unnamedplus
 colorscheme peaksea
 set backspace=indent,eol,start
 call plug#begin('~/.vim/plugged')
+Plug 'LukasPietzschmann/telescope-tabs'
+Plug 'windwp/nvim-autopairs'
+Plug 'windwp/nvim-ts-autotag'
+Plug 'norcalli/nvim-colorizer.lua'
 Plug 'kyazdani42/nvim-web-devicons'
+Plug 'akinsho/nvim-bufferline.lua'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -19,7 +24,6 @@ Plug 'chrisbra/vim-commentary'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/tagbar'
-Plug 'szymonmaszke/vimpyter'
 Plug 'airblade/vim-gitgutter'
 Plug 'yegappan/taglist'
 Plug 'nvim-lua/plenary.nvim'
@@ -44,14 +48,9 @@ map <leader>tt :term<cr>
 " Close all buffers
 map <leader>ba :1,1000 bd!<cr>
 vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
-map <leader>o :BufExplorer<cr>
 " Quickly find and open a file in the CWD
-let g:ctrlp_map = '<C-f>'
-" Quickly find and open a recently opened file
 " map <leader>f :Locate .<CR>
 map <leader>h :History .<CR>
-" Quickly find and open a buffer
-" map <leader>b :CtrlPBuffer<cr>
 map <leader>nn :NERDTreeToggle<cr>
 map <leader>nb :NERDTreeFromBookmark 
 map <leader>nf :NERDTreeFind<cr>
@@ -84,6 +83,6 @@ set noswapfile
 nmap <leader>ts :term tsc % <cr>
 
 " Find files using Telescope command-line sugar.
-nnoremap <leader>t <cmd>Telescope find_files<cr>
+nnoremap <leader>f <cmd>Telescope find_files<cr>
 nnoremap <leader>g <cmd>Telescope live_grep<cr>
-nnoremap <leader>b <cmd>Telescope buffers<cr>
+nnoremap <leader>b <cmd>Telescope telescope-tabs list_tabs<cr>
