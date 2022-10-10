@@ -8,6 +8,8 @@ set clipboard=unnamedplus
 colorscheme peaksea
 set backspace=indent,eol,start
 call plug#begin('~/.vim/plugged')
+Plug 'yegappan/taglist'
+Plug 'wasden/telescope-funky.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
 Plug 'sheerun/vim-polyglot'
@@ -41,7 +43,6 @@ let mapleader = ","
 nmap <leader>w :w!<cr>
 nmap <leader>d :term python -m pudb % <cr>
 map <leader>tn :tabnew<cr>
-map <leader>l  :TlistToggle<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove 
@@ -95,6 +96,9 @@ nnoremap <leader>b <cmd>Telescope telescope-tabs list_tabs<cr>
  " Move to previous/next
 nnoremap <C-n> <Cmd>BufferPrevious<CR>
 nnoremap <C-m> <Cmd>BufferNext<CR>
+" nnoremap <leader>tc <Cmd>BufferClose<CR>
+
+
 set mouse+=a
 
 
