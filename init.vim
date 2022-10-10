@@ -8,6 +8,9 @@ set clipboard=unnamedplus
 colorscheme peaksea
 set backspace=indent,eol,start
 call plug#begin('~/.vim/plugged')
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-easymotion.vim'
+Plug 'easymotion/vim-easymotion'
 Plug 'yegappan/taglist'
 Plug 'wasden/telescope-funky.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -149,3 +152,4 @@ let bufferline.minimum_padding = 1
 
 " Sets the maximum buffer name length.
 let bufferline.maximum_length = 30
+map <leader>z <Plug>(incsearch-easymotion-/)
