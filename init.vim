@@ -8,6 +8,11 @@ set clipboard=unnamedplus
 colorscheme peaksea
 set backspace=indent,eol,start
 call plug#begin('~/.vim/plugged')
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'romgrk/barbar.nvim'
+Plug 'sheerun/vim-polyglot'
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'liuchengxu/vista.vim'
 Plug 'LukasPietzschmann/telescope-tabs'
 Plug 'windwp/nvim-autopairs'
 Plug 'windwp/nvim-ts-autotag'
@@ -17,7 +22,8 @@ Plug 'akinsho/nvim-bufferline.lua'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'preservim/nerdtree'
 Plug 'chrisbra/vim-commentary'
@@ -86,3 +92,56 @@ nmap <leader>ts :term tsc % <cr>
 nnoremap <leader>f <cmd>Telescope find_files<cr>
 nnoremap <leader>g <cmd>Telescope live_grep<cr>
 nnoremap <leader>b <cmd>Telescope telescope-tabs list_tabs<cr>
+ " Move to previous/next
+nnoremap <C-n> <Cmd>BufferPrevious<CR>
+nnoremap <C-m> <Cmd>BufferNext<CR>
+set mouse+=a
+
+
+" NOTE: If barbar's option dict isn't created yet, create it
+let bufferline = get(g:, 'bufferline', {})
+
+" Enable/disable animations
+let bufferline.animation = v:true
+
+" Enable/disable auto-hiding the tab bar when there is a single buffer
+let bufferline.auto_hide = v:true
+
+" Enable/disable current/total tabpages indicator (top right corner)
+let bufferline.tabpages = v:true
+
+" Enable/disable close button
+let bufferline.closable = v:true
+
+" Enables/disable clickable tabs
+"  - left-click: go to buffer
+"  - middle-click: delete buffer
+let bufferline.clickable = v:true
+
+
+" Enable/disable icons
+" if set to 'buffer_number', will show buffer number in the tabline
+" if set to 'numbers', will show buffer index in the tabline
+" if set to 'both', will show buffer index and icons in the tabline
+" if set to 'buffer_number_with_icon', will show buffer number and icons in the tabline
+let bufferline.icons = v:true
+
+" Sets the icon's highlight group.
+" If false, will use nvim-web-devicons colors
+let bufferline.icon_custom_colors = v:false
+
+" Configure icons on the bufferline.
+let bufferline.icon_separator_active = '▎'
+let bufferline.icon_separator_inactive = '▎'
+let bufferline.icon_close_tab = ''
+let bufferline.icon_close_tab_modified = '●'
+let bufferline.icon_pinned = '車'
+
+" Sets the maximum padding width with which to surround each tab.
+let bufferline.maximum_padding = 4
+
+" Sets the minimum padding width with which to surround each tab.
+let bufferline.minimum_padding = 1
+
+" Sets the maximum buffer name length.
+let bufferline.maximum_length = 30
